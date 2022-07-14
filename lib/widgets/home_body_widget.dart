@@ -14,7 +14,7 @@ class _HomeBodyWidgetState extends State<HomeBodyWidget> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        Image.asset('images/10.png'),
+        Image.asset('assets/images/10.png'),
         Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [

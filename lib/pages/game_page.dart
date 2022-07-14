@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:hangman_flutter/widgets/alphabet_wigdet.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hangman_flutter/cubit/word_list_cubit.dart';
+
+import 'package:hangman_flutter/widgets/alphabet_widget.dart';
 
 class GamePage extends StatefulWidget {
   GamePage({Key key}) : super(key: key);
@@ -18,19 +22,22 @@ class _GamePageState extends State<GamePage> {
           child: Text('Hangman'),
         ),
         backgroundColor: Color(0xFF0B6419),
-       
       ),
       body: Container(
         color: Color(0xFF8a8888),
         child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Image.asset('images/6.png'),
+            Image.asset('assets/images/6.png'),
             AlphabetWidget(),
+            BlocBuilder<WordListCubit,List<String>>(
+              builder: (context, state) {
+                return Text(state[0]);
+              },
+            ),
           ],
         ),
       ),
     );
   }
- 
 }
