@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hangman_flutter/cubit/word_list_cubit.dart';
 import 'package:hangman_flutter/widgets/home_body_widget.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -9,6 +11,11 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  @override
+  void initState() {
+    super.initState();
+    BlocProvider.of<WordListCubit>(context).loadAsset();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(

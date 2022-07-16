@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'package:get_it/get_it.dart';
 import 'package:hangman_flutter/cubit/word_list_cubit.dart';
+
+import 'package:hangman_flutter/repositories/word_list_repository.dart';
 
 import 'package:hangman_flutter/widgets/alphabet_widget.dart';
 
@@ -13,6 +16,7 @@ class GamePage extends StatefulWidget {
 }
 
 class _GamePageState extends State<GamePage> {
+  GetIt getIt = GetIt.instance;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,11 +34,14 @@ class _GamePageState extends State<GamePage> {
           children: [
             Image.asset('assets/images/6.png'),
             AlphabetWidget(),
-            BlocBuilder<WordListCubit,List<String>>(
-              builder: (context, state) {
-                return Text(state[0]);
-              },
-            ),
+            // BlocBuilder<WordListCubit,bool>(
+            //   builder: (context, state) {
+
+            //     return state?Text(getIt<WordListRepository>().words[0]):CircularProgressIndicator();
+            //   },
+            // ),
+            Text(getIt<WordListRepository>().words[0]),
+            
           ],
         ),
       ),
