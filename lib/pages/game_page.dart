@@ -40,7 +40,7 @@ class _GamePageState extends State<GamePage> {
             //     return state?Text(getIt<WordListRepository>().words[0]):CircularProgressIndicator();
             //   },
             // ),
-            Text(getIt<WordListRepository>().words[0]),
+            Text(getIt<WordListRepository>().selectedWord),
             
           ],
         ),
